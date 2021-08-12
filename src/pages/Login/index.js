@@ -4,7 +4,7 @@ import requestLogin from '../../requests/login';
 import loginAction from '../../actions/login';
 import { useDispatch, useSelector } from 'react-redux';
 import jwt_decode from 'jwt-decode';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -37,12 +37,12 @@ const Login = () => {
 
     return (
         <>
-        { isLoggedIn && <Redirect to='/dashboard'/>}
         <form onSubmit={handleSubmit}>
             <TextField  label="Email" name='email' variant="outlined" onChange={handleChange} />
             <TextField  label="Password" name='password' variant="outlined" onChange={handleChange} />
             <Button type='submit' color="primary" variant="contained">Login</Button>
         </form>
+        <p>Don't have an account? Register <Link to='/register'>Here</Link> </p>
         </>
     )
 }

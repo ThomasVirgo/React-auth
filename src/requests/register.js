@@ -2,12 +2,12 @@ import axios from 'axios';
 
 async function requestRegister(name, email, password){
     const url = 'http://localhost:3000/auth/register';
-    const data = { name, email, password};
+    const payload = { name, email, password};
     const headers = { 
         'Content-Type': 'application/json'
     };
-    const response = await axios.post(url, data, { headers });
-    console.log(response);
+    const { data } = await axios.post(url, payload, { headers });
+    return data;
 }
 
 export default requestRegister;
