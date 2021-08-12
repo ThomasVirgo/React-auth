@@ -16,7 +16,7 @@ const Dashboard = () => {
 
     return (
         <>
-        {!isLoggedIn && <Redirect to='/login' />}
+        {/* {!isLoggedIn && <Redirect to='/login' />} */}
         <h1>Welcome {user.name}, my friend!</h1>
         <button onClick={handleLogout}>Logout</button>
         </>
