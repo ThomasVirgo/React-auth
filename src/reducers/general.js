@@ -10,7 +10,6 @@ if (isLoggedIn){
     } catch (error){
         user = {};
         isLoggedIn=false;
-        console.log(error)
     }
 }
 
@@ -25,6 +24,20 @@ const initState = {
 
 const generalReducer = (state=initState, action) => {
     switch(action.type) {
+        case 'LOGIN':
+            return ({
+                ...state,
+                isLoggedIn: true,
+                user: action.user,
+                token: action.token
+            })
+        case 'LOGOUT':
+            return ({
+                ...state,
+                isLoggedIn: false,
+                user: {},
+                token: false
+            })
         case 'LOAD_LIST':
             return ({
                 ...state,
