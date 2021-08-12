@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Login, Register, Dashboard } from './pages';
-import { PrivateRoute } from './components';
+import { Login, Register, Dashboard, LandingPage } from './pages';
+import { PrivateRoute, LoggedOutRoute } from './components';
 
 const App = () => {
 
@@ -9,12 +9,9 @@ const App = () => {
         <>
         <Switch>
             <PrivateRoute path = '/dashboard' component={Dashboard} />
-            <Route exact path='/login'>
-                <Login/>
-            </Route>
-            <Route exact path='/register'>
-                <Register/>
-            </Route>
+            <LoggedOutRoute path = '/login' component={Login} />
+            <LoggedOutRoute path = '/register' component={Register} />
+            <LoggedOutRoute path = '/' component={LandingPage} />
         </Switch>
         </>
     )
