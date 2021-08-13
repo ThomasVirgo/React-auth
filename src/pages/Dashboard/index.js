@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import logoutAction from '../../actions/logout';
+import { TriviaFeed } from '../../components';
 
 const Dashboard = () => {
     const isLoggedIn = useSelector(state => state.isLoggedIn);
@@ -19,6 +20,7 @@ const Dashboard = () => {
         <>
         <h1>Welcome {user.name}, my friend!</h1>
         <button onClick={handleLogout}>Logout</button>
+        <TriviaFeed/>
         </>
     );
 };
